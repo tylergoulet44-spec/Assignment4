@@ -3,13 +3,14 @@ class Ghost {
   PImage Ghost;
   PVector position;
   PVector speed;
-PVector acceleration;
+  PVector acceleration;
 
 
   Ghost(float x, float y) {
-    
-    speed= new PVector(20, 20);
+
+    speed= new PVector(0, 0);
     position = new PVector(x, y);
+    acceleration = new PVector(1, 1);
   }
   void display() {
     Ghost=loadImage("ghost_resized.png");
@@ -17,14 +18,16 @@ PVector acceleration;
     Ghost.resize(100, 100);
   }
 
-  void move() {
-      speed.add(acceleration);// how the enemy speeds up
-      speed.limit(15);// makes it so that the enemy can't go to fast
-      position.add(speed);
-    }
-    void track() {
-      if (playerX>300 && playerY>0){
-      position=playerPosition;
-    }
-}
+  
+  //enemy tracking https://www.youtube.com/watch?v=2FsL07pywHA&t=8s
+  void Update() {
+    PVector player= new PVector(mouseX,mouseY);
+    PVector direction= PVector.sub(player, position);//subtract enemy position to get to player
+
+    direction.normalize();//smoothen outs the vectors magnatude when it gets to the player 
+    acceleration = direction;//tells the enemy what direction 
+    speed.add(acceleration);// how the enemy speeds up
+    speed.limit(2);// makes it so that the enemy can't go to fast
+    position.add(speed);
+  }
 }

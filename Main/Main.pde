@@ -7,5 +7,6 @@ void setup(){
 }
 void draw(){
   background(0);
-
+G.display();
+G.Update();
 }
