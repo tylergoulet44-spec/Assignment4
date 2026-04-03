@@ -1,6 +1,6 @@
 class Ghost {
 
-  PImage ghost_resized;
+PImage Ghost;
 PVector position;
 PVector speed;
  
@@ -11,5 +11,10 @@ PVector speed;
 speed= new PVector(20,20);
 position = new PVector(x, y);
 }
-void display
+void display(){
+  Ghost=loadImage("ghost_resized.png");
+  image(Ghost,x,y);
 }
+
+void move(){
+  
