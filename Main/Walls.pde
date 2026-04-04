@@ -1,14 +1,4 @@
 class Walls {
-<<<<<<< HEAD
-
-  PVector Pos;
-  PVector Start;
-  PVector End;
-  
-  float d = PVector.dist(Start, End);
-  float w;
-  float h;
-=======
   //helps with position of the wall
   PVector Location;
   //next wall block to be placed
@@ -17,28 +7,11 @@ class Walls {
   PVector current;
   float w=random(50, 100);
   float h=random(50, 100);
->>>>>>> Walls
 
 
 
 
 
-<<<<<<< HEAD
-  Walls(float x, float y,float w,float h) {
-
-    w=random(100, 300);
-    h=random(100, 300);
-    Start = new PVector(x, y);
-    End = new PVector(x + 900, y);
-  }
-
-  void display() {
-
-
-  }
-
-  }
-=======
   Walls(float x, float y, float w, float h) {
 
    
@@ -111,4 +84,3 @@ class Walls {
     }
   }
 }
->>>>>>> Walls
