@@ -19,7 +19,7 @@ class Ghost {
   }
 
   
-  //enemy tracking https://www.youtube.com/watch?v=2FsL07pywHA&t=8s
+  //enemy tracking https://www.youtube.com/watch?v=2FsL07pywHA&t=8s, https://www.youtube.com/watch?v=V7k5bFQbhG0
   void Update(Player P) {
     PVector player=  P.position;
     PVector direction= PVector.sub(player, position);//subtract enemy position to get to player
