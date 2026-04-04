@@ -12,4 +12,6 @@ G.display();
 G.Update(P);
 P.display();
 P.move();
+P.kill(G);
+P.restart();
 }
