@@ -1,4 +1,5 @@
 ArrayList<Walls> W;
+
 Ghost G;
 void setup(){
   fullScreen();
@@ -9,6 +10,5 @@ void draw(){
   background(0);
 G.display();
 G.Update();
+W.display();
   }
-
-}

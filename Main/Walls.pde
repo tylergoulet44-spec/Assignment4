@@ -1,6 +1,6 @@
 class Walls {
 
-  PVector Pos;
+  PVector Location;
   PVector Start;
   PVector End;
   
@@ -18,11 +18,12 @@ class Walls {
     h=random(100, 300);
     Start = new PVector(x, y);
     End = new PVector(x + 900, y);
+    println(d);
   }
 
   void display() {
-
-
-  }
+ rect(Location.x, Location.y, w, h);
 
   }
+
+}
