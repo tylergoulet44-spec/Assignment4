@@ -20,8 +20,8 @@ class Ghost {
 
   
   //enemy tracking https://www.youtube.com/watch?v=2FsL07pywHA&t=8s
-  void Update() {
-    PVector player= new PVector(mouseX,mouseY);
+  void Update(Player P) {
+    PVector player=  P.position;
     PVector direction= PVector.sub(player, position);//subtract enemy position to get to player
 
     direction.normalize();//smoothen outs the vectors magnatude when it gets to the player 
