@@ -1,6 +1,6 @@
 class Player {
   PImage Person;
-  
+
   PVector position;
   PVector velocity;
 
@@ -16,6 +16,7 @@ class Player {
     Person=loadImage("Person.png");
     image(Person, position.x, position.y);
     Person.resize(10, 10);
+    //println(position.x, position.y);
   }
 
   void move() {
@@ -49,9 +50,9 @@ class Player {
     }
   }
   void kill(Ghost G) {
-    float d = dist (position.x, position.y, G.position.x+20, G.position.y-10);
-
-    if (d<30) { 
+    float d = dist (position.x, position.y, G.position.x+25, G.position.y-10);
+   // println(d);
+    if (d<30) {
       gameOver=true;
     }
   }

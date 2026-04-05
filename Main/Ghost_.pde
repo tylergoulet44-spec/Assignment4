@@ -16,6 +16,7 @@ class Ghost {
     Ghost=loadImage("ghost_resized.png");
     image(Ghost, position.x, position.y);
     Ghost.resize(100, 100);
+    // println(position.x, position.y);
   }
 
   

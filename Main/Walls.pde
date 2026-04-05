@@ -7,11 +7,10 @@ class Walls {
   PVector current;
   float w;
   float h;
-
+  
   Walls(float x, float y, float wallw, float wallh) {
 
-    //  Start = new PVector(x, y);
-    //  End = new PVector(x + 900, y);
+   
     Location = new PVector(x, y);
     current = new PVector(x, y);
     next = new PVector(x, y);
@@ -24,12 +23,12 @@ class Walls {
   void display() {
     rect(Location.x, Location.y, w, h);
     //grey
-    fill(#A59E9E);
+    fill(#D81818);
   }
   // Makes a random path of walls
   void makePath() {
     //spacing of the walls being placed
-    int spacing =200;
+    int spacing =250;
     //amount of squares placed on the screen
     int totalsquares= 30;
     W.add(new Walls(current.x, current.y, w, h));
