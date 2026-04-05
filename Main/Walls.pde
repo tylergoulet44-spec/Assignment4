@@ -5,8 +5,8 @@ class Walls {
   PVector next;
   //Wall we are placing
   PVector current;
-  float w=random(50, 100);
-  float h=random(50, 100);
+  float w=random(50, 200);
+  float h=random(50, 200);
 
 
 
