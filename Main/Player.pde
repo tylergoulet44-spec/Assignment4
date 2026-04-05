@@ -1,6 +1,6 @@
 class Player {
   PImage Person;
-  PImage Over;
+  
   PVector position;
   PVector velocity;
 
@@ -51,14 +51,7 @@ class Player {
   void kill(Ghost G) {
     float d = dist (position.x, position.y, G.position.x+20, G.position.y-10);
 
-    if (d<30) {
-      noLoop();
-      background(255);
-      fill(255, 0, 0);
-      textSize(40);
-      text("PRESS 'T' TO TRY AGAIN", width/1.5, height/1.5);
-      Over=loadImage("game_over_PNG31.png");
-      image(Over, width/2.5, height/2.5);
+    if (d<30) { 
       gameOver=true;
     }
   }

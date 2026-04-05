@@ -5,21 +5,18 @@ class Walls {
   PVector next;
   //Wall we are placing
   PVector current;
-  float w=random(50, 200);
-  float h=random(50, 200);
+  float w;
+  float h;
 
+  Walls(float x, float y, float wallw, float wallh) {
 
-
-
-
-  Walls(float x, float y, float w, float h) {
-
-   
     //  Start = new PVector(x, y);
     //  End = new PVector(x + 900, y);
     Location = new PVector(x, y);
     current = new PVector(x, y);
-    next = new PVector(x,y);
+    next = new PVector(x, y);
+    w=wallw;
+    h=wallh;
 
     //println(d);
   }
@@ -29,27 +26,28 @@ class Walls {
     //grey
     fill(#A59E9E);
   }
-// Makes a random path of walls 
+  // Makes a random path of walls
   void makePath() {
-//spacing of the walls being placed 
-    int spacing =100;
-    //amount of squares placed on the screen 
-    int totalsquares= 50;
+    //spacing of the walls being placed
+    int spacing =200;
+    //amount of squares placed on the screen
+    int totalsquares= 30;
     W.add(new Walls(current.x, current.y, w, h));
-//loop for making more walls 
+    //loop for making more walls
     for (int i = 0; i < totalsquares; i++) {
       //did we place a new wall
       boolean placed = false;
-    //attempts made 
+      //attempts made
       int attempts = 0;
-    //keep trying until a wall is placed down or attempts reach 5
-     while (!placed && attempts < 5) {
+      //keep trying until a wall is placed down or attempts reach 5
+      while (!placed && attempts < 5) {
         attempts++;
-//what way to go 
+        
+        //what way to go
         boolean goRight = false;
         boolean goUp = false;
         boolean goDown = false;
-//random choice for direction 
+        //random choice for direction
         int choice = int(random(4));
 
         if (choice == 0 || choice == 1) {
@@ -71,13 +69,13 @@ class Walls {
         if (goDown) {
           next.y += spacing;
         }
-           //only place a wall if it stays on the screen 
+        //only place a wall if it stays on the screen
         if (next.x >= 0 && next.x <= width - spacing && next.y >= 0 && next.y <= height - spacing) {
-         //adds a wall at the next position
+          //adds a wall at the next position
           W.add(new Walls(next.x, next.y, w, h));
-         //updates current so we continue from same wall
+          //updates current so we continue from same wall
           current = new PVector(next.x, next.y);
-         //lets us know we placed a wall
+          //lets us know we placed a wall
           placed = true;
         }
       }

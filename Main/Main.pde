@@ -1,50 +1,54 @@
 ArrayList<Walls> W;
 Walls Wall;
 Ghost G;
-<<<<<<< HEAD
+Player P;
+PImage Over;
+boolean gameOver= false;
+float wallw= 150;
+float wallh= 400;
 void setup() {
+  
   fullScreen();
   W=new ArrayList<Walls>();
   G= new Ghost(random(1000, 2000), random(0, 1000));
-  Wall = new Walls(50,height/2,random(75,150),random(75,150));
-   Wall.makePath();
-}
-void draw() {
-  background(0);
-  G.display();
-  G.Update();
-  Wall.display();
-  
-  for (int i = 0; i < W.size(); i++) {
-    Walls currentWall = W.get(i);
-    currentWall.display();
-  
-}
-=======
-Player P;
-boolean gameOver= false;
-void setup() {
-  fullScreen();
-
-  G= new Ghost(random(1500, 2000), random(0, 1000));
+  Wall = new Walls(300, height/2,wallw ,wallh );
   P= new Player(100, height/2);
+
+  Wall.makePath();
 }
 void draw() {
-  
+
+  if (gameOver==false) {
     background(0);
+   Wall.display();
     G.display();
     G.Update(P);
+    P.kill(G);
     P.display();
     P.move();
-    P.kill(G);
-  
+    for (int i = 0; i < W.size(); i++) {
+      Walls currentWall = W.get(i);
+      currentWall.display();
+    }
+  } else {
+    background(255);
+    fill(255);
+    rect(0, 0, width, height);
+    fill(255, 0, 0);
+    textSize(40);
+    text("PRESS 'T' TO TRY AGAIN", width/1.5, height/1.5);
+    Over=loadImage("game_over_PNG31.png");
+    image(Over, width/2.5, height/2.5);
+  }
 }
+
 void keyPressed() {
   if (key=='t' && gameOver== true) {
     G= new Ghost(random(1500, 2000), random(0, 1000));
     P= new Player(100, height/2);
-    loop();
+    W.clear();
+    Wall = new Walls(50, height/2, wallw, wallh);
+    Wall.makePath();
     gameOver=false;
   }
->>>>>>> Player-
 }
