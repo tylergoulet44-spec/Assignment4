@@ -1,36 +1,34 @@
-ArrayList<Walls> W;
-Walls Wall;
-Ghost G;
-Player P;
-PImage Over;
-boolean gameOver= false;
+ArrayList<Walls> W;  //wall class arraylist
+Walls Wall;  //wall class
+Ghost G;  //ghost class
+Player P;  //player class
+PImage Over;  //Game over image
+boolean gameOver= false; //what state the game is in 
 float wallw= 150;
 float wallh= 400;
 void setup() {
-  
-  fullScreen();
+
+  fullScreen();//makes the game fullscreen
   W=new ArrayList<Walls>();
   G= new Ghost(random(1000, 2000), random(0, 1000));
-  Wall = new Walls(300, height/2,wallw ,wallh );
+  Wall = new Walls(300, height/2, wallw, wallh );
   P= new Player(100, height/2);
-
-  Wall.makePath();
+  Wall.makePath();  //gets the wall path creation code
 }
 void draw() {
-
+  //only display when game is active
   if (gameOver==false) {
     background(0);
-   Wall.display();
     G.display();
     G.Update(P);
     P.kill(G);
     P.display();
     P.move();
-    for (int i = 0; i < W.size(); i++) {
+    for (int i = 0; i < W.size(); i++) {  //loops through the walls in the arraylist
       Walls currentWall = W.get(i);
       currentWall.display();
     }
-  } else {
+  } else {   //code to reset the game and try again 
     background(255);
     fill(255);
     rect(0, 0, width, height);
@@ -42,7 +40,7 @@ void draw() {
   }
 }
 
-void keyPressed() {
+void keyPressed() {  //makes the game rest on 't' key pressed 
   if (key=='t' && gameOver== true) {
     G= new Ghost(random(1500, 2000), random(0, 1000));
     P= new Player(100, height/2);
