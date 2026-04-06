@@ -7,17 +7,12 @@ class Walls {
   PVector current;
   float w;
   float h;
-  
   Walls(float x, float y, float wallw, float wallh) {
-
-   
     Location = new PVector(x, y);
     current = new PVector(x, y);
     next = new PVector(x, y);
     w=wallw;
     h=wallh;
-
-    //println(d);
   }
   //draw the rectangle on the screen to create the path
   void display() {
@@ -41,14 +36,12 @@ class Walls {
       //keep trying until a wall is placed down or attempts reach 5
       while (!placed && attempts < 5) {
         attempts++;
-        
         //what way to go
         boolean goRight = false;
         boolean goUp = false;
         boolean goDown = false;
         //random choice for direction
         int choice = int(random(4));
-
         if (choice == 0 || choice == 1) {
           goRight = true;
         } else if (choice == 2) {
@@ -56,7 +49,6 @@ class Walls {
         } else {
           goDown = true;
         }
-
         next = new PVector(current.x, current.y);
 
         if (goRight) {
