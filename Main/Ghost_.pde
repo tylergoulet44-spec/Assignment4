@@ -12,10 +12,12 @@ class Ghost {
     position = new PVector(x, y);
     acceleration = new PVector(1, 1);
   }
+  //displays the ghost 
   void display() {
     Ghost=loadImage("ghost_resized.png");
     image(Ghost, position.x, position.y);
     Ghost.resize(100, 100);
+    // println(position.x, position.y);
   }
 
   
@@ -27,7 +29,7 @@ class Ghost {
     direction.normalize();//smoothen outs the vectors magnatude when it gets to the player 
     acceleration = direction;//tells the enemy what direction 
     speed.add(acceleration);// how the enemy speeds up
-    speed.limit(2);// makes it so that the enemy can't go to fast
+    speed.limit(2.85);// makes it so that the enemy can't go to fast
     position.add(speed);
   }
 }

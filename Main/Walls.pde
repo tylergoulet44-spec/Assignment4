@@ -7,29 +7,23 @@ class Walls {
   PVector current;
   float w;
   float h;
-
   Walls(float x, float y, float wallw, float wallh) {
-
-    //  Start = new PVector(x, y);
-    //  End = new PVector(x + 900, y);
     Location = new PVector(x, y);
     current = new PVector(x, y);
     next = new PVector(x, y);
     w=wallw;
     h=wallh;
-
-    //println(d);
   }
   //draw the rectangle on the screen to create the path
   void display() {
     rect(Location.x, Location.y, w, h);
     //grey
-    fill(#A59E9E);
+    fill(#D81818);
   }
   // Makes a random path of walls
   void makePath() {
     //spacing of the walls being placed
-    int spacing =200;
+    int spacing =250;
     //amount of squares placed on the screen
     int totalsquares= 30;
     W.add(new Walls(current.x, current.y, w, h));
@@ -42,14 +36,12 @@ class Walls {
       //keep trying until a wall is placed down or attempts reach 5
       while (!placed && attempts < 5) {
         attempts++;
-        
         //what way to go
         boolean goRight = false;
         boolean goUp = false;
         boolean goDown = false;
         //random choice for direction
         int choice = int(random(4));
-
         if (choice == 0 || choice == 1) {
           goRight = true;
         } else if (choice == 2) {
@@ -57,7 +49,6 @@ class Walls {
         } else {
           goDown = true;
         }
-
         next = new PVector(current.x, current.y);
 
         if (goRight) {
